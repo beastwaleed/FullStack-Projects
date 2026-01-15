@@ -4,7 +4,7 @@ import Spinner from './components/spinner'
 import { useDebounce } from 'react-use'
 import { Routes, Route} from 'react-router-dom'
 import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
+import Favorites from "./src/pages/Favorites";
 import Navbar from './components/Navbar'
 import Watch from './src/pages/Watch'
 

@@ -45,13 +45,13 @@ const Home = () => {
     };
 
     if (loading) return (
-        <div className="flex h-screen items-center justify-center bg-[#0a0a0a]">
+        <div className="flex h-screen items-center justify-center ">
             <l-ring size="60" color="red"></l-ring>
         </div>
     );
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-red-600">
+        <div className="min-h-screen text-white font-sans selection:bg-red-600">
             
             {/* --- HERO SECTION --- */}
             {!searchQuery && featuredMovie && (
