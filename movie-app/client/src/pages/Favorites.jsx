@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Favorites = () => {
     const [favs, setFavs] = useState([]);
     const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
-    const API_BASE = import.meta.env.VITE_BACKEND_URL ?? 'http://localhost:5000';
+    const API_BASE = import.meta.env.VITE_BACKEND_URL ?? 'https://full-stack-projects-tau.vercel.app';
     const API_FAVS = `${API_BASE}/api/favorites`;
 
     const fetchFavs = async () => {
