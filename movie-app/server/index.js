@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // 3. Import and Use Routes
-const movieRoutes = require('./routes/movies');
+const movieRoutes = require('./routes/Movies');
 app.use('/api/favorites', movieRoutes);
 
 // 4. Optimized MongoDB Connection for Serverless
