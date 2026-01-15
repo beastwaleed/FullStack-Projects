@@ -5,15 +5,29 @@ require('dotenv').config();
 
 const app = express();
 
-// 1. More Flexible CORS (Essential for Vercel)
+// 1. CORS: allow local dev and deployed client domains so the frontend can call the API
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    'http://localhost:5173',
+    'https://full-stack-projects-tau.vercel.app',
+    'https://playpulsemovies.vercel.app'
+].filter(Boolean);
+
 app.use(cors({
-    origin: "https://playpulsemovies.vercel.app", // No trailing slash
+    origin: function(origin, callback) {
+        // allow requests with no origin (like curl, mobile apps, server-to-server)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            return callback(null, true);
+        }
+        // reject other origins in production
+        return callback(new Error('CORS policy: Origin not allowed'), false);
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// Manually handle the OPTIONS preflight request
+// Handle OPTIONS preflight
 app.options('*', cors());
 
 app.use(express.json());

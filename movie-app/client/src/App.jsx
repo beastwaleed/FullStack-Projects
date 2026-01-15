@@ -6,7 +6,7 @@ import { Routes, Route} from 'react-router-dom'
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites.jsx";
 import Navbar from './components/Navbar'
-import Watch from '.src/pages/Watch.jsx'
+import Watch from './pages/Watch.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
