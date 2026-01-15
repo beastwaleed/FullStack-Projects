@@ -3,9 +3,8 @@ import './App.css'
 import Spinner from './components/spinner'
 import { useDebounce } from 'react-use'
 import { Routes, Route} from 'react-router-dom'
-import Home from './pages/home'
-import Watch from './pages/watch'
-import Favorites from './pages/Favorites'
+import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
 import Navbar from './components/Navbar'
 
 function App() {
