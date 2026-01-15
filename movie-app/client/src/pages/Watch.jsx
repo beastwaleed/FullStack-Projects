@@ -13,7 +13,7 @@ const Watch = () => {
     const [isSaving, setIsSaving] = useState(false);
 
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-    const API_BASE = import.meta.env.VITE_BACKEND_URL ?? 'https://full-stack-projects-tau.vercel.app';
+    const API_BASE = import.meta.env.VITE_BACKEND_URL ?? 'http://localhost:5000';
     const BACKEND_URL = `${API_BASE}/api/favorites`;
 
     useEffect(() => {
