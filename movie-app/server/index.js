@@ -28,9 +28,6 @@ app.use(cors({
     credentials: true
 }));
 
-// Handle OPTIONS preflight
-app.options('*', cors());
-
 // Parse JSON request bodies
 app.use(express.json());
 
