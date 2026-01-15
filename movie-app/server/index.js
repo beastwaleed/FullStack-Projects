@@ -5,26 +5,44 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-const CLIENT_URLS = (process.env.CLIENT_URLS || "http://localhost:5173").split(',');
+// 1. More Flexible CORS (Essential for Vercel)
 app.use(cors({
-    origin: CLIENT_URLS,
-    methods: ["GET", "POST", "DELETE"]
+    origin: "https://playpulsemovies.vercel.app", // No trailing slash
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
+
+// Manually handle the OPTIONS preflight request
+app.options('*', cors());
+
 app.use(express.json());
 
-// IMPORT THE ROUTES
-const movieRoutes = require('./routes/movies');
+// 2. Health Check Route (To verify backend is alive)
+app.get("/", (req, res) => {
+    res.status(200).send("Backend is running!");
+});
 
-// USE THE ROUTES (This adds the prefix /api/favorites)
+// 3. Import and Use Routes
+const movieRoutes = require('./routes/movies');
 app.use('/api/favorites', movieRoutes);
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("✅ MongoDB Connected"))
-    .catch(err => console.log(err));
+// 4. Optimized MongoDB Connection for Serverless
+// We remove app.listen because Vercel handles the port
+const connectDB = async () => {
+    if (mongoose.connection.readyState >= 1) return;
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log("✅ MongoDB Connected");
+    } catch (err) {
+        console.error("❌ MongoDB Connection Error:", err);
+    }
+};
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Connect to DB on every request (standard for Vercel)
+app.use(async (req, res, next) => {
+    await connectDB();
+    next();
+});
 
 module.exports = app;
