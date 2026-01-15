@@ -36,7 +36,12 @@ app.use(express.json());
 
 // 2. Health Check Route (To verify backend is alive)
 app.get("/", (req, res) => {
-    res.status(200).send("Backend is running!");
+    res.status(200).json({ message: "Backend is running!", mongo: mongoose.connection.readyState });
+});
+
+// 2b. Health check for favorites API
+app.get("/api/health", (req, res) => {
+    res.status(200).json({ message: "API is ready" });
 });
 
 // 3. Import and Use Routes

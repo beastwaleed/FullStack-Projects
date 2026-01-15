@@ -6,9 +6,11 @@ const Favorite = require('../models/Favorite'); // Ensure this path to your mode
 router.get('/all', async (req, res) => {
     try {
         const favorites = await Favorite.find();
+        // Always return an array, never wrap it
         res.json(favorites);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        console.error('GET /all error:', err);
+        res.status(500).json({ message: err.message, error: err.toString() });
     }
 });
 
