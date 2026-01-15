@@ -11,7 +11,9 @@ const Favorites = () => {
     const fetchFavs = async () => {
         try {
             const res = await axios.get(`${API_FAVS}/all`);
-            setFavs(res.data);
+            // Deployed backend may wrap the array in an object like { value: [...] }
+            const data = Array.isArray(res.data) ? res.data : (res.data.value ?? []);
+            setFavs(data);
         } catch (err) {
             console.error(err);
         }
