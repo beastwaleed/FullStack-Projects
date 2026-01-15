@@ -6,6 +6,8 @@ import { Routes, Route} from 'react-router-dom'
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import Navbar from './components/Navbar'
+import Watch from './pages/Watch.jsx'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +19,7 @@ function App() {
     {/* Pages render here */}
     <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/watch/:id" element={<Watch/>}/>
+        <Route path='/watch/:id' element={<Watch/>}/>
         <Route path='/favorites' element={<Favorites/>}/>
     </Routes>
   </>
