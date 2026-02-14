@@ -173,6 +173,10 @@ html,
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   /* 1 */
