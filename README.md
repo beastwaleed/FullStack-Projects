@@ -28,9 +28,10 @@ Welcome to my repository featuring a collection of high-performance web applicat
 ## 🔗 Connect with Me
 
 - **Portfolio:** [waleedafzal.vercel.app](https://waleedafzal.vercel.app/)
-- **LinkedIn:** (https://www.linkedin.com/in/digiwaleed)]
+- **LinkedIn:** (https://www.linkedin.com/in/digiwaleed)
 - **Services:** WordPress Development, MERN Stack, UI/UX Animations.
 
 ---
 *Developed with ❤️ by Waleed Afzal*
+
 
