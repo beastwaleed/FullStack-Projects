@@ -4,25 +4,15 @@ Welcome to my repository featuring a collection of high-performance web applicat
 
 ---
 
-## 🌟 Featured Projects
+## 🚀 Featured Projects
 
-### 1. 🖼️ Thumbify (AI Thumbnail Generator)
-An AI-powered web application that automates the creation of high-quality thumbnails using Google's Gemini Pro Vision.
-* **Live Demo:** [thumbify-nu.vercel.app](https://thumbify-nu.vercel.app/)
-* **Stack:** MongoDB, Express.js, React, Node.js, Gemini API.
-* **Key Features:** Secure JWT authentication, prompt engineering for image generation, and cloud-based asset storage.
-
-### 2. 🎬 PlayPulse (Movie Discovery Platform)
-A dynamic movie database app providing real-time information and personalized watchlists.
-* **Live Demo:** [playpulsemovies.vercel.app](https://playpulsemovies.vercel.app/)
-* **Stack:** React, Tailwind CSS, TMDB API, Node.js.
-* **Key Features:** Real-time search, advanced filtering, and a mobile-first responsive layout.
-
-### 3. 🎓 College Society Website
-A comprehensive portal designed to manage and showcase college society events and registrations.
-* **Live Demo:** [Click Here](https://tinyurl.com/5n8tst48)
-* **Stack:** HTML, CSS, JavaScript, GSAP.
-* **Key Features:** Interactive UI components, event timelines, and smooth scrolling animations.
+| Project Name | Type | Key Tech Stack | Live Demo |
+| :--- | :--- | :--- | :--- |
+| **Thumbify** | AI Thumbnail Generator | MERN Stack, Gemini API | [Link](https://thumbify-nu.vercel.app/) |
+| **PlayPulse** | Movie Discovery App | React, TMDB API | [Link](https://playpulsemovies.vercel.app/) |
+| **College Society** | Event Management | JS, GSAP, Locomotive | [Link](https://tinyurl.com/5n8tst48) |
+| **Personal Portfolio**| Professional Showcase | Next.js, Framer Motion | [Link](https://waleedafzal.vercel.app/) |
+| **Elite Solutions** | Client Website (UAE) | WordPress, Custom UI | [Link](https://elitesolutionsmarketing.net/) |
 
 ---
 
@@ -38,8 +28,9 @@ A comprehensive portal designed to manage and showcase college society events an
 ## 🔗 Connect with Me
 
 - **Portfolio:** [waleedafzal.vercel.app](https://waleedafzal.vercel.app/)
-- **LinkedIn:** [Your LinkedIn Profile Link]
+- **LinkedIn:** (https://www.linkedin.com/in/digiwaleed)]
 - **Services:** WordPress Development, MERN Stack, UI/UX Animations.
 
 ---
 *Developed with ❤️ by Waleed Afzal*
+
