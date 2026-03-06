@@ -84,3 +84,69 @@ if (contactForm) {
         }
     });
 }
+
+// Projects Filtering
+document.addEventListener('DOMContentLoaded', () => {
+    const projectTabs = document.querySelectorAll('.project-tab-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (projectTabs.length > 0 && projectCards.length > 0) {
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active classes from all tabs
+                projectTabs.forEach(t => {
+                    t.classList.remove('active', 'border-transparent', 'bg-gradient-to-r', 'from-[#b820e6]', 'to-[#da7d20]', 'text-white', 'shadow-md');
+                    t.classList.add('border-gray-300', 'dark:border-white/30', 'bg-white', 'dark:bg-transparent', 'dark:text-white', 'hover:bg-slate-100/70', 'dark:hover:bg-darkHover');
+                });
+                
+                // Add active classes to clicked tab
+                tab.classList.remove('border-gray-300', 'dark:border-white/30', 'bg-white', 'dark:bg-transparent', 'dark:text-white', 'hover:bg-slate-100/70', 'dark:hover:bg-darkHover');
+                tab.classList.add('active', 'border-transparent', 'bg-gradient-to-r', 'from-[#b820e6]', 'to-[#da7d20]', 'text-white', 'shadow-md');
+                
+                const targetCategory = tab.getAttribute('data-category');
+                
+                // Filter cards
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    if (targetCategory === 'all' || targetCategory === cardCategory) {
+                        card.style.display = 'flex';
+                        // Add fade-in animation
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+});
+
+// Slider Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const slideLeftBtn = document.getElementById('slideLeft');
+    const slideRightBtn = document.getElementById('slideRight');
+    const graphicSlider = document.getElementById('graphicSlider');
+
+    if(slideLeftBtn && slideRightBtn && graphicSlider) {
+        let scrollAmount = 0;
+        
+        slideLeftBtn.addEventListener('click', () => {
+            const card = graphicSlider.querySelector('.snap-center');
+            const cardWidth = card ? card.offsetWidth : 300;
+            graphicSlider.scrollLeft -= (cardWidth + 24);
+        });
+
+        slideRightBtn.addEventListener('click', () => {
+             const card = graphicSlider.querySelector('.snap-center');
+             const cardWidth = card ? card.offsetWidth : 300;
+             graphicSlider.scrollLeft += (cardWidth + 24);
+        });
+    }
+});

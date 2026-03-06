@@ -173,10 +173,6 @@ html,
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   /* 1 */
@@ -190,7 +186,7 @@ body {
   border-radius: 16px;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol", "Noto Color Emoji";
   overflow: hidden;
-  max-width: 480px;
+  max-width: calc(33.333% - 1rem);
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition:
@@ -199,7 +195,7 @@ body {
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: min-content;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -762,6 +758,7 @@ input:where([type="button"]),
 input:where([type="reset"]),
 input:where([type="submit"]) {
   -webkit-appearance: button;
+  appearance: button;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -2090,7 +2087,7 @@ video {
 
 /* Flexbox adjustments for project cards container */
 @media (max-width: 768px) {
-  .flex.flex-wrap.items-stretch.gap-4.px-12 {
+  .flex.flex-wrap.items-stretch.justify-center.gap-6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
