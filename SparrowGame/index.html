@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparrow vs Dragon – by Waleed</title>
+    <meta name="description" content="Save the Sparrow from the Dragon! A fun physics-based side-scrolling game.">
+    <link rel="icon" href="assets/sparrow.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== START SCREEN ===== -->
+    <div class="screen" id="startScreen">
+        <div class="screen-content">
+            <div class="logo-wrap">
+                <img src="assets/sparrow.png" alt="Sparrow" class="logo-bird">
+                <h1 class="game-title">Sparrow<span>Run</span></h1>
+            </div>
+            <p class="game-sub">Save the Sparrow from the Dragon!</p>
+            <div class="controls-hint">
+                <div class="hint-row"><kbd>↑</kbd> / <kbd>Space</kbd> Jump &nbsp;|&nbsp; <kbd>←</kbd><kbd>→</kbd> Move
+                </div>
+                <div class="hint-row mobile-only">Tap buttons below to play on mobile</div>
+            </div>
+            <button class="btn-play" id="btnStart">▶ Play Now</button>
+            <p class="credit">Made by Waleed</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/in/digiwaleed" target="_blank"
+                rel="noopener noreferrer" aria-label="Waleed's LinkedIn">
+                <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                Connect on LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div class="game-wrap" id="gameWrap" style="display:none">
+
+        <!-- HUD -->
+        <div class="hud">
+            <div class="hud-left">
+                <div class="hud-block" id="scoreDisplay">
+                    <span class="hud-label">SCORE</span>
+                    <span class="hud-val" id="scoreVal">0</span>
+                </div>
+                <div class="hud-block" id="hiDisplay">
+                    <span class="hud-label">BEST</span>
+                    <span class="hud-val" id="hiVal">0</span>
+                </div>
+                <div class="hud-block" id="livesDisplay">
+                    <span class="hud-label">LIVES</span>
+                    <span class="hud-val" id="livesVal">❤️❤️❤️</span>
+                </div>
+                <div class="hud-block" id="levelDisplay">
+                    <span class="hud-label">LEVEL</span>
+                    <span class="hud-val" id="levelVal">1</span>
+                </div>
+            </div>
+            <div class="hud-right">
+                <!-- Live rating summary -->
+                <div class="hud-rating" id="hudRating">
+                    <span class="hud-stars" id="hudStars">★★★★★</span>
+                    <span class="hud-rating-text" id="hudRatingText">No reviews</span>
+                </div>
+                <!-- Review button -->
+                <button class="btn-review" id="btnReview">⭐ Rate Game</button>
+            </div>
+        </div>
+
+        <!-- Canvas (game renders here) -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- PAUSE overlay -->
+        <div class="overlay" id="pauseOverlay" style="display:none">
+            <div class="overlay-box">
+                <h2>⏸ Paused</h2>
+                <p>Press <kbd>P</kbd> or <kbd>Esc</kbd> to resume</p>
+            </div>
+        </div>
+
+        <!-- GAME OVER overlay -->
+        <div class="overlay" id="gameOverOverlay" style="display:none">
+            <div class="overlay-box go-box">
+                <div class="go-icon">💀</div>
+                <h2 id="goTitle">Game Over</h2>
+                <p id="goScore">Score: 0</p>
+                <p id="goHi">Best: 0</p>
+                <div class="go-btns">
+                    <button class="btn-play btn-sm" id="btnRestart">↩ Restart</button>
+                    <button class="btn-play btn-sm btn-menu" id="btnMenu">⌂ Menu</button>
+                </div>
+                <p class="hint-small desktop-only">Press <kbd>R</kbd> to restart</p>
+            </div>
+        </div>
+
+        <!-- Mobile controls -->
+        <div class="mobile-controls">
+            <button class="mc-btn" id="mcLeft">◀</button>
+            <button class="mc-btn mc-jump" id="mcJump">▲ JUMP</button>
+            <button class="mc-btn" id="mcRight">▶</button>
+        </div>
+
+    </div>
+
+    <!-- ===== REVIEW MODAL ===== -->
+    <div class="review-modal-bg" id="reviewModalBg">
+        <div class="review-modal" id="reviewModal">
+            <button class="review-close" id="reviewClose" aria-label="Close">✕</button>
+            <div class="review-header">
+                <span class="review-icon">🎮</span>
+                <h2>Rate SparrowRun</h2>
+                <p>How much did you enjoy the game?</p>
+            </div>
+
+            <!-- Star picker -->
+            <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Star rating">
+                <span class="star" data-val="1" role="radio" tabindex="0" aria-label="1 star">★</span>
+                <span class="star" data-val="2" role="radio" tabindex="0" aria-label="2 stars">★</span>
+                <span class="star" data-val="3" role="radio" tabindex="0" aria-label="3 stars">★</span>
+                <span class="star" data-val="4" role="radio" tabindex="0" aria-label="4 stars">★</span>
+                <span class="star" data-val="5" role="radio" tabindex="0" aria-label="5 stars">★</span>
+            </div>
+            <p class="star-label" id="starLabel">Tap a star to rate</p>
+
+            <!-- Optional text -->
+            <textarea class="review-text" id="reviewText" placeholder="Leave a comment... (optional)" maxlength="250"
+                rows="3"></textarea>
+            <p class="review-charcount"><span id="reviewCharCount">0</span>/250</p>
+
+            <!-- Submit -->
+            <button class="btn-submit-review" id="btnSubmitReview" disabled>Submit Review</button>
+
+            <!-- Aggregate stats -->
+            <div class="review-stats" id="reviewStats">
+                <div class="review-avg">
+                    <span class="review-avg-num" id="reviewAvgNum">—</span>
+                    <div class="review-avg-stars" id="reviewAvgStars"></div>
+                    <span class="review-avg-label" id="reviewAvgLabel">No reviews yet</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (compat v9) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
