@@ -10,7 +10,7 @@
 
 > Save the Sparrow from the Dragon — dodge obstacles, level up, and survive as long as you can!
 
-**[▶ Play Now](#)** • **[LinkedIn](https://www.linkedin.com/in/digiwaleed)** • **[Report a Bug](https://github.com/digiwaleed/SparrowRun/issues)**
+**[▶ Play Now](https://savesparrow.netlify.app/)** • **[LinkedIn](https://www.linkedin.com/in/digiwaleed)** • **[Report a Bug](https://github.com/digiwaleed/SparrowRun/issues)**
 
 </div>
 
