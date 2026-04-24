@@ -10,6 +10,7 @@ Welcome to my repository featuring a collection of high-performance web applicat
 | :--- | :--- | :--- | :--- |
 | **Thumbify** | AI Thumbnail Generator | MERN Stack, Gemini API | [Link](https://thumbify-nu.vercel.app/) |
 | **PlayPulse** | Movie Discovery App | React, TMDB API | [Link](https://playpulsemovies.vercel.app/) |
+| **Sparrow Run Game** |Physics-based Browser Game | HTML, CSS, JS, Firebase | [Link](https://savesparrow.netlify.app/) |
 | **College Society** | Event Management | JS, GSAP, Locomotive | [Link](https://tinyurl.com/5n8tst48) |
 | **Personal Portfolio**| Professional Showcase | Next.js, Framer Motion | [Link](https://waleedafzal.vercel.app/) |
 | **Elite Solutions** | Client Website (UAE) | WordPress, Custom UI | [Link](https://elitesolutionsmarketing.net/) |
@@ -20,8 +21,8 @@ Welcome to my repository featuring a collection of high-performance web applicat
 
 - **Frontend:** React.js, Next.js, Tailwind CSS, GSAP, Locomotive Scroll.
 - **Backend:** Node.js, Express.js, PHP (WordPress).
-- **Database:** MongoDB, MySQL.
-- **Tools:** GitHub Copilot, Cursor, Vercel, Zapier, Gemini API.
+- **Database:** MongoDB, MySQL, Firebase.
+- **Tools:** GitHub Copilot, Cursor, Vercel, Zapier, Gemini API, Hugging Face API.
 
 ---
 
@@ -29,7 +30,7 @@ Welcome to my repository featuring a collection of high-performance web applicat
 
 - **Portfolio:** [waleedafzal.vercel.app](https://waleedafzal.vercel.app/)
 - **LinkedIn:** (https://www.linkedin.com/in/digiwaleed)
-- **Services:** WordPress Development, MERN Stack, UI/UX Animations.
+- **Services:** MERN Stack, UI/UX Animations, WordPress & Shopify Development,.
 
 ---
 *Developed with ❤️ by Waleed Afzal*
